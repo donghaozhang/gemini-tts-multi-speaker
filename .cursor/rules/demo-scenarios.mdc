@@ -1,0 +1,61 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Demo Scenarios and Use Cases
+
+## Multi-Speaker Conversations
+
+[multi_speaker_demo.py](mdc:multi_speaker_demo.py) contains 5 conversation scenarios:
+
+### 1. Podcast Demo (`demo_podcast()`)
+- **Voices**: kore (Host) + charon (Dr. Chen)
+- **Content**: Professional AI discussion
+- **Output**: `podcast_demo.wav`
+
+### 2. Customer Service (`demo_customer_service()`)
+- **Voices**: puck (Agent) + zephyr (Customer)
+- **Content**: Support call scenario
+- **Output**: `customer_service_demo.wav`
+
+### 3. Educational (`demo_teacher_student()`)
+- **Voices**: aoede (Teacher) + leda (Student)
+- **Content**: Physics lesson interaction
+- **Output**: `teacher_student_demo.wav`
+
+### 4. Story Dialogue (`demo_story_dialogue()`)
+- **Voices**: fenrir (Alice) + orus (Ben)
+- **Content**: Character conversation
+- **Output**: `story_dialogue_demo.wav`
+
+### 5. Job Interview (`demo_interview()`)
+- **Voices**: algieba (Interviewer) + schedar (Candidate)
+- **Content**: Professional interview
+- **Output**: `interview_demo.wav`
+
+## Academic Paper Presentations
+
+[academic_papers_demo.py](mdc:academic_papers_demo.py) contains 5 research paper presentations:
+
+1. **GneissWeb** - High quality LLM training data (kore + charon)
+2. **Code Comment Classification** - ML-LLM pairing (puck + zephyr)
+3. **FineWeb Datasets** - Web data curation (aoede + orus)
+4. **DataComp-LM** - Training set benchmark (leda + fenrir)
+5. **RefinedWeb** - Falcon LLM dataset (algieba + schedar)
+
+## Single-Speaker Examples
+
+Basic examples in [gemini_tts_example.py](mdc:gemini_tts_example.py):
+- `basic_example.wav` - Simple TTS demonstration
+- `cheerful_example.wav` - Upbeat style with puck voice
+- `mysterious_example.wav` - Whisper style with enceladus voice
+
+## Voice Pairing Strategy
+
+Different voice combinations create distinct conversation dynamics:
+- **Professional**: kore + charon (authoritative + informative)
+- **Casual**: puck + zephyr (upbeat + bright)
+- **Educational**: aoede + leda (breezy + youthful)
+- **Dramatic**: fenrir + orus (excitable + firm)
+- **Formal**: algieba + schedar (smooth + balanced)

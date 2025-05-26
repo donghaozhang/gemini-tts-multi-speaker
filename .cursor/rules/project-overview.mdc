@@ -1,0 +1,45 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Gemini TTS Project Overview
+
+This is a comprehensive Text-to-Speech system using Google's Gemini API with multi-speaker capabilities.
+
+## Core Architecture
+
+The main TTS functionality is in [gemini_tts_example.py](mdc:gemini_tts_example.py), which provides:
+- `text_to_speech_simple()` - Basic single-speaker TTS
+- `text_to_speech_with_style()` - TTS with emotional/style control
+- `text_to_speech_multi_speaker()` - Multi-speaker conversations
+
+## Demo Applications
+
+- [multi_speaker_demo.py](mdc:multi_speaker_demo.py) - Conversation scenarios (podcast, customer service, interviews)
+- [academic_papers_demo.py](mdc:academic_papers_demo.py) - Academic paper presentations with shortened excerpts
+- [full_papers_generator.py](mdc:full_papers_generator.py) - Command-line tool for full paper audio generation
+
+## Configuration
+
+- [.env](mdc:.env) - Contains the GEMINI_API_KEY (not tracked by git)
+- [.env.example](mdc:.env.example) - Template for environment setup
+- [requirements.txt](mdc:requirements.txt) - Python dependencies (google-genai>=0.8.0)
+
+## Execution Scripts
+
+- [run_example.bat](mdc:run_example.bat) - Run basic TTS examples
+- [run_multi_speaker_demo.bat](mdc:run_multi_speaker_demo.bat) - Run conversation demos
+- [run_academic_papers_demo.bat](mdc:run_academic_papers_demo.bat) - Run academic presentations
+
+## Output Organization
+
+All generated audio files are stored in the `result/` directory and excluded from git tracking due to file size.
+
+## Key Features
+
+- 30+ voice options (kore, puck, zephyr, charon, etc.)
+- Style control using natural language prompts
+- Multi-speaker conversations with voice assignment
+- Academic content presentation capabilities
+- WAV output at 24kHz, 16-bit PCM

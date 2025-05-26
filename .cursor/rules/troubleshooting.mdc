@@ -1,0 +1,95 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Troubleshooting Guide
+
+## Common Issues
+
+### API Key Problems
+
+**Error**: "GEMINI_API_KEY environment variable not set"
+- **Solution**: Ensure [.env](mdc:.env) file exists with `GEMINI_API_KEY=your_key_here`
+- **Check**: Batch files load environment variables correctly
+- **Verify**: API key is valid at https://aistudio.google.com/
+
+### Voice Name Errors
+
+**Error**: API errors with voice names
+- **Cause**: Voice names must be lowercase in API calls
+- **Solution**: The code in [gemini_tts_example.py](mdc:gemini_tts_example.py) automatically converts to lowercase
+- **Example**: "Kore" → "kore", "Puck" → "puck"
+
+### Import Errors
+
+**Error**: "No module named 'google.generativeai'"
+- **Solution**: Install dependencies with `pip install -r requirements.txt`
+- **Check**: [requirements.txt](mdc:requirements.txt) contains `google-genai>=0.8.0`
+
+### Audio File Issues
+
+**Problem**: Generated audio files not found
+- **Check**: Files are saved in `result/` directory
+- **Verify**: Directory exists and has write permissions
+- **Note**: WAV files are excluded from git tracking
+
+### Multi-Speaker Parsing
+
+**Problem**: Speaker dialogue not parsed correctly
+- **Format**: Use "Speaker Name: dialogue text" format
+- **Example**: "Alice: Hello there!\n\nBob: Hi Alice!"
+- **Check**: Speaker names match those in speakers array
+
+## Performance Issues
+
+### API Rate Limits
+
+- **Symptom**: Slow response or timeout errors
+- **Solution**: Add delays between API calls for large batches
+- **Monitor**: API usage in Google AI Studio console
+
+### Large Audio Files
+
+- **Issue**: Long text generates large audio files
+- **Solution**: Split long content into smaller segments
+- **Example**: [full_papers_generator.py](mdc:full_papers_generator.py) handles full academic papers
+
+## Debugging Tips
+
+### Enable Verbose Output
+
+Add debug prints in [gemini_tts_example.py](mdc:gemini_tts_example.py):
+```python
+print(f"Processing speaker: {speaker_name}")
+print(f"Text length: {len(text)}")
+print(f"Voice: {voice_name}")
+```
+
+### Test Individual Components
+
+- **Single Speaker**: Test with `text_to_speech_simple()`
+- **Style Control**: Test with `text_to_speech_with_style()`
+- **Multi-Speaker**: Test with simple 2-person dialogue
+
+### Check Audio Output
+
+- **Format**: WAV files should be 24kHz, 16-bit PCM
+- **Size**: Typical file sizes range from 200KB to 4MB
+- **Duration**: Roughly 1MB per minute of audio
+
+## Environment Validation
+
+Run this check in Python:
+```python
+import os
+import google.generativeai as genai
+
+# Check API key
+api_key = os.getenv("GEMINI_API_KEY")
+print(f"API Key present: {bool(api_key)}")
+
+# Test API connection
+genai.configure(api_key=api_key)
+print("API configured successfully")
+```

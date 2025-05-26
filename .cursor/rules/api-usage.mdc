@@ -1,0 +1,55 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Gemini API Usage Patterns
+
+## API Configuration
+
+The Gemini API client is configured in [gemini_tts_example.py](mdc:gemini_tts_example.py) using:
+```python
+import google.generativeai as genai
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+```
+
+## Supported Models
+
+- `gemini-2.5-flash-preview-tts` - Fast, efficient TTS (default)
+- `gemini-2.5-pro-preview-tts` - High-quality TTS
+
+## Voice Names Convention
+
+**IMPORTANT**: All voice names must be lowercase in API calls. The code converts voice names like "Kore" → "kore", "Puck" → "puck".
+
+Available voices include:
+- Professional: kore, charon, enceladus
+- Upbeat: puck, zephyr, fenrir
+- Character: aoede, leda, orus, algieba, schedar
+
+## Multi-Speaker Implementation
+
+Multi-speaker functionality in [gemini_tts_example.py](mdc:gemini_tts_example.py) works by:
+1. Parsing dialogue text to identify speakers
+2. Splitting content by speaker using regex patterns
+3. Generating separate audio for each speaker segment
+4. Concatenating audio segments with silence gaps
+
+## Error Handling
+
+The code includes robust error handling for:
+- Missing API keys
+- Invalid voice names
+- API rate limits
+- Audio generation failures
+
+## Style Control
+
+Use natural language prompts to control speech style:
+- "Say cheerfully: [text]"
+- "Say in a spooky whisper: [text]"
+- "Say professionally and informatively: [text]"
+
+## Audio Output
+
+All functions save to WAV format (24kHz, 16-bit PCM, mono) in the `result/` directory.

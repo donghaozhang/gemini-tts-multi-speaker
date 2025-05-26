@@ -1,0 +1,66 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Development Workflow
+
+## Environment Setup
+
+1. **API Key Configuration**: Copy [.env.example](mdc:.env.example) to [.env](mdc:.env) and add your Gemini API key
+2. **Dependencies**: Install with `pip install -r requirements.txt` from [requirements.txt](mdc:requirements.txt)
+3. **Testing**: Use batch files for quick testing of different scenarios
+
+## File Organization
+
+- **Source Code**: All Python files in project root
+- **Generated Audio**: All WAV files automatically saved to `result/` directory
+- **Documentation**: [README.md](mdc:README.md) and [PROJECT_STRUCTURE.md](mdc:PROJECT_STRUCTURE.md)
+
+## Git Workflow
+
+The [.gitignore](mdc:.gitignore) excludes:
+- Environment files (`.env`)
+- Audio files (`*.wav`, `*.mp3`) - too large for version control
+- Python cache (`__pycache__/`)
+- IDE files and temporary files
+
+## Adding New Scenarios
+
+To add new conversation scenarios:
+
+1. **Single Speaker**: Add functions to [gemini_tts_example.py](mdc:gemini_tts_example.py)
+2. **Multi-Speaker**: Add demo functions to [multi_speaker_demo.py](mdc:multi_speaker_demo.py)
+3. **Academic Content**: Add presentations to [academic_papers_demo.py](mdc:academic_papers_demo.py)
+
+## Batch Script Pattern
+
+All batch files follow this pattern:
+```batch
+@echo off
+echo Loading environment variables from .env file...
+for /f "delims=" %%x in (.env) do (set "%%x")
+echo Running [Description]...
+python [script_name].py
+pause
+```
+
+## Testing Strategy
+
+- **Quick Tests**: Use [run_example.bat](mdc:run_example.bat) for basic functionality
+- **Conversation Tests**: Use [run_multi_speaker_demo.bat](mdc:run_multi_speaker_demo.bat)
+- **Academic Tests**: Use [run_academic_papers_demo.bat](mdc:run_academic_papers_demo.bat)
+
+## Code Style
+
+- Functions use descriptive names with clear purposes
+- Error handling includes user-friendly messages
+- Voice names are converted to lowercase for API compatibility
+- Output files are saved with descriptive names in `result/` directory
+
+## Extension Points
+
+- Add new voice combinations in speaker arrays
+- Create new dialogue scenarios with different themes
+- Implement additional audio processing features
+- Add support for different output formats
