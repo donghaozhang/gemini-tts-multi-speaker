@@ -24,6 +24,4 @@ This AGENT file summarizes key information about the project for developers work
 - `README.md` and `PROJECT_STRUCTURE.md` – Documentation
 
 ## TODOs
-- Add automated tests for TTS functions
-- Provide command line interface for single-speaker examples
-- Expand documentation with troubleshooting tips
+- Separate the sample dialogue text from the Python scripts into a JSON file for easier editing
