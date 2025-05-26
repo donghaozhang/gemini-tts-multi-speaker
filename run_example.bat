@@ -1,0 +1,6 @@
+@echo off
+echo Loading environment variables from .env file...
+for /f "delims=" %%x in (.env) do (set "%%x")
+echo Running Gemini TTS Example...
+python gemini_tts_example.py
+pause 
