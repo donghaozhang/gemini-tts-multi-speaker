@@ -99,6 +99,9 @@ python gemini_tts_example.py
 python multi_speaker_demo.py
 ```
 
+On Windows you can launch these examples from the interactive
+`run_demos.bat` script.
+
 **Single-speaker examples:**
 - `basic_example.wav` - Basic TTS
 - `cheerful_example.wav` - Cheerful style

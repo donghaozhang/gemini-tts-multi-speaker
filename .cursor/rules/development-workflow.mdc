@@ -47,9 +47,7 @@ pause
 
 ## Testing Strategy
 
-- **Quick Tests**: Use [run_example.bat](mdc:run_example.bat) for basic functionality
-- **Conversation Tests**: Use [run_multi_speaker_demo.bat](mdc:run_multi_speaker_demo.bat)
-- **Academic Tests**: Use [run_academic_papers_demo.bat](mdc:run_academic_papers_demo.bat)
+Use [run_demos.bat](mdc:run_demos.bat) to launch any of the demos or run them all at once.
 
 ## Code Style
 
