@@ -18,7 +18,10 @@ Usage:
 """
 
 import os
-from gemini_tts_example import text_to_speech_multi_speaker
+from gemini_tts_example import (
+    text_to_speech_multi_speaker,
+    create_full_paper_presentation,
+)
 from dialogues import get_dialogue
 
 
@@ -95,31 +98,6 @@ def demo_refined_web():
     ]
     
     text_to_speech_multi_speaker(dialogue, speakers, "refined_web_paper.wav")
-    print()
-
-
-def create_full_paper_presentation(paper_name, full_script, output_file):
-    """
-    Create a full paper presentation from the complete script.
-    
-    Args:
-        paper_name (str): Name of the paper
-        full_script (str): Complete script text
-        output_file (str): Output WAV filename
-    """
-    print(f"📄 Creating full presentation: {paper_name}")
-    
-    # Choose appropriate voices for academic presentation
-    speakers = [
-        {"name": "Narrator 1", "voice": "kore"},     # Professional
-        {"name": "Narrator 2", "voice": "charon"}   # Informative
-    ]
-    
-    # Add style instruction for academic tone
-    styled_script = f"Make both narrators sound professional and informative, suitable for an academic presentation: {full_script}"
-    
-    text_to_speech_multi_speaker(styled_script, speakers, output_file)
-    print(f"✅ Full presentation saved as: {output_file}")
     print()
 
 

@@ -12,7 +12,10 @@ Usage:
 
 import os
 import argparse
-from gemini_tts_example import text_to_speech_multi_speaker
+from gemini_tts_example import (
+    text_to_speech_multi_speaker,
+    create_full_paper_presentation,
+)
 
 
 # Full paper scripts
@@ -130,20 +133,12 @@ def generate_paper_audio(paper_key):
         return
     
     paper = PAPERS[paper_key]
-    print(f"📄 Generating: {paper['title']}")
-    
-    # Professional academic voices
-    speakers = [
-        {"name": "Narrator 1", "voice": "kore"},     # Professional, authoritative
-        {"name": "Narrator 2", "voice": "charon"}   # Informative, clear
-    ]
-    
-    # Add academic style instruction
-    styled_script = f"Make both narrators sound professional and engaging, suitable for an academic presentation: {paper['script']}"
-    
     try:
-        text_to_speech_multi_speaker(styled_script, speakers, paper['output'])
-        print(f"✅ Generated: {paper['output']}")
+        create_full_paper_presentation(
+            paper["title"],
+            paper["script"],
+            paper["output"],
+        )
         return True
     except Exception as e:
         print(f"❌ Error generating {paper['output']}: {e}")

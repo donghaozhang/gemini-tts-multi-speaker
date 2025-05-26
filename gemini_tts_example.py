@@ -205,6 +205,31 @@ def create_dialogue_from_script(script_lines):
     return "\n".join(dialogue_parts)
 
 
+def create_full_paper_presentation(paper_name, full_script, output_file):
+    """Create a full paper presentation from the complete script.
+
+    Args:
+        paper_name (str): Name of the paper.
+        full_script (str): Complete script text.
+        output_file (str): Output WAV filename.
+    """
+    print(f"📄 Creating full presentation: {paper_name}")
+
+    speakers = [
+        {"name": "Narrator 1", "voice": "kore"},
+        {"name": "Narrator 2", "voice": "charon"},
+    ]
+
+    styled_script = (
+        "Make both narrators sound professional and informative, "
+        f"suitable for an academic presentation: {full_script}"
+    )
+
+    text_to_speech_multi_speaker(styled_script, speakers, output_file)
+    print(f"✅ Full presentation saved as: {output_file}")
+    print()
+
+
 def main():
     """Main function demonstrating different TTS examples."""
     
