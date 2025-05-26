@@ -21,10 +21,8 @@ notebook_peter/
 ├── academic_papers_demo.py        # Academic paper presentations
 ├── full_papers_generator.py       # Full paper audio generator
 │
-├── Batch Scripts:
-├── run_example.bat                # Run basic TTS examples
-├── run_multi_speaker_demo.bat     # Run conversation demos
-├── run_academic_papers_demo.bat   # Run academic presentations
+├── Batch Script:
+├── run_demos.bat                  # Interactive script for all demos
 │
 └── result/                        # Generated audio files (16 files)
     ├── basic_example.wav          # Basic TTS demo
