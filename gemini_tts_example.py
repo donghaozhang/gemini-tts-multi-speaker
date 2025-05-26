@@ -18,6 +18,7 @@ import os
 import wave
 from google import genai
 from google.genai import types
+from dialogues import get_dialogue
 
 
 def save_wave_file(filename, pcm_data, channels=1, rate=24000, sample_width=2):
@@ -239,13 +240,7 @@ def main():
     
     # Example 4: Multi-speaker conversation - Tech discussion
     print("Example 4: Multi-speaker Tech Discussion")
-    tech_dialogue = """Dr. Sarah: Welcome to our AI podcast! Today we're discussing the future of text-to-speech technology.
-    
-Marcus: Thanks for having me, Sarah! It's fascinating how natural these AI voices have become.
-
-Dr. Sarah: Absolutely! The ability to control emotion and style with simple prompts is revolutionary.
-
-Marcus: I agree! And multi-speaker capabilities open up so many possibilities for audiobooks and podcasts."""
+    tech_dialogue = get_dialogue("gemini_tts_example", "tech_dialogue")
     
     tech_speakers = [
         {"name": "Dr. Sarah", "voice": "kore"},  # Firm, professional
@@ -263,12 +258,7 @@ Marcus: I agree! And multi-speaker capabilities open up so many possibilities fo
     print("Example 5: Multi-speaker Casual Chat")
     
     # Using the helper function to create dialogue
-    casual_script = [
-        ("Emma", "Hey Alex! Did you hear about the new AI features?"),
-        ("Alex", "Yes! The text-to-speech quality is incredible!"),
-        ("Emma", "I know, right? It sounds so natural and expressive."),
-        ("Alex", "We should definitely use this for our next project.")
-    ]
+    casual_script = get_dialogue("gemini_tts_example", "casual_script")
     
     casual_dialogue = create_dialogue_from_script(casual_script)
     
@@ -286,15 +276,7 @@ Marcus: I agree! And multi-speaker capabilities open up so many possibilities fo
     
     # Example 6: Multi-speaker with style instructions
     print("Example 6: Multi-speaker with Style Control")
-    styled_dialogue = """Make Alice sound excited and happy, and Bob sound calm and thoughtful:
-
-Alice: This is amazing! The AI can actually understand emotions in our voices!
-
-Bob: It's quite remarkable indeed. The technology has come a long way.
-
-Alice: I can't wait to see what other applications this will have!
-
-Bob: The possibilities are endless, from education to entertainment."""
+    styled_dialogue = get_dialogue("gemini_tts_example", "styled_dialogue")
     
     styled_speakers = [
         {"name": "Alice", "voice": "fenrir"},      # Excitable - matches excited style
